@@ -1,0 +1,55 @@
+void setup()
+{
+size(840, 280);
+
+}
+
+void draw(){
+  background(248, 252, 250);
+  stroke(0, 4, 5);
+  strokeWeight(11);
+int i;
+  for(i=0; i<100000; i++){
+if (i==90000){
+//B
+line(33, 52, 33, 180);
+arc(36, 141, 107, 83, 0, HALF_PI, OPEN);
+arc(36, 141, 107, 40, QUARTER_PI+PI+QUARTER_PI, TWO_PI);
+arc(36, 72, 107, 83, 0, HALF_PI, OPEN);
+arc(36, 72, 107, 40, QUARTER_PI+PI+QUARTER_PI, TWO_PI);
+  }
+  }
+//l
+line(113, 47, 113, 180);
+//i
+line(134, 80, 134, 180);
+line(134, 47, 134, 63);
+//t
+line(169, 47, 169, 147);
+line(189, 72, 151, 72);
+arc(217, 142, 96, 86, 2, QUARTER_PI+QUARTER_PI+HALF_PI);
+//z
+line(215, 92, 275, 92);
+line(273, 93, 215, 180);
+line(215, 180, 275, 180);
+
+//B
+line(300, 53, 300, 178);
+arc(300, 141, 120, 83, 0, HALF_PI, OPEN);
+arc(300, 141, 120, 40, QUARTER_PI+PI+QUARTER_PI, TWO_PI);
+arc(300, 72, 120, 83, 0, HALF_PI, OPEN);
+arc(300, 72, 120, 40, QUARTER_PI+PI+QUARTER_PI, TWO_PI);
+//u
+line(434, 112, 434, 180);
+line(380, 112, 380, 147);
+arc(407, 142, 54, 80, 0, PI);
+
+//r
+line(455, 112, 455, 180);
+arc(471, 130, 30, 15, QUARTER_PI+PI, TWO_PI);
+//n
+line(504, 112, 504, 180);
+line(556, 134, 556, 180);
+arc(527, 134, 58, 26, QUARTER_PI+PI, TWO_PI);
+noFill();
+}
