@@ -1,0 +1,32 @@
+int frame = 0;
+float multiplier = 0.002;
+int numberOfPoints = 320;
+
+void setup()
+{
+  size(990, 480);
+  strokeWeight(5);
+}
+
+void draw()
+{
+  background(255);
+
+  //sin linje
+for (int i=0; i<100; i++){
+
+  stroke(10, 40, 30);
+  //Draw animated point
+  point(92+(i*8), 170 + sin(frame * -0.03+((i/3))) * 58);
+}
+
+//cos linje
+for (int v=1; v<100; v++){
+  stroke(222, 82, 98);
+  point(80+(v*8), 366 + cos(frame * -0.04+((v/-2))) * 29);
+}
+
+
+  frame++;
+
+}
