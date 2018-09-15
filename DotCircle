@@ -1,0 +1,34 @@
+
+
+float x;
+float y;
+float w=width;
+float h=height;
+
+  
+void setup() {
+  size(640, 640);
+
+
+}
+
+void draw() {
+   background(159);
+ stroke(58);
+  for (int i=0; i<720; i++) {
+
+
+    float radius =  307;
+
+   x=w/2  + radius * cos(radians(i));
+   y=h/2 + radius * sin(radians(i));
+
+   // x=w/2 + radius * cos(degrees(i));
+    //y=h/2 + radius * sin(degrees(i));
+
+    strokeWeight(3);
+    stroke(142+i, 16+i, 181+i);
+     point(x, y);
+
+  }
+}
