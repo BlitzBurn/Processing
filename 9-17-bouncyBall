@@ -1,0 +1,35 @@
+int radius=25;
+float startPosX, startPosY;
+
+float xAxisSpeed=4;
+float yAxisSpeed=3.6;
+
+int xMovement=1;
+int yMovement=1;
+
+void setup(){
+  strokeWeight(5);
+  size(640, 480);
+
+  ellipseMode(RADIUS);
+
+  startPosX=width/2;
+  startPosY=height/2;
+}
+
+void draw(){
+  background(164);
+
+ startPosX=startPosX+(xAxisSpeed*xMovement);
+ startPosY=startPosY+(yAxisSpeed*yMovement);
+
+   if (startPosX > width-radius || startPosX < radius) {
+    xMovement *= -1;
+  }
+  if (startPosY > height-radius || startPosY < radius) {
+    yMovement *= -1;
+}
+
+ellipse(startPosX,startPosY, radius, radius);
+
+}
