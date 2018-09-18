@@ -1,0 +1,34 @@
+void setup(){
+ size(480, 640);
+
+ strokeWeight(3);
+
+}
+
+void draw(){
+background(55);
+
+//Solution 1, ball moves smoothly, but there is an extra ball in the corner
+ for(int i=0; i<2400; i++){
+
+   int x=-20;
+   int y=-20;
+
+      if(i==600||i==1200||i==1800||i==2400){
+        x=mouseX;
+        y=mouseY;
+      }
+   ellipse(x, y, 40, 40);
+    }
+
+/*
+//solution 2, no extra ball, but hurts to look at
+    for(int i=0; i<2400; i++){
+
+   int x=mouseX;
+   int y=mouseY;
+
+   ellipse(x, y, 40, 40);
+    }
+    */
+}
