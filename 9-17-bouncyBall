@@ -1,8 +1,13 @@
 int radius=25;
 float startPosX, startPosY;
 
-float xAxisSpeed=4;
-float yAxisSpeed=3.6;
+PVector speed;
+PVector location;
+
+float a=1;
+
+float xAxisSpeed=1.4;
+float yAxisSpeed=2.1;
 
 int xMovement=1;
 int yMovement=1;
@@ -11,7 +16,10 @@ void setup(){
   strokeWeight(5);
   size(640, 480);
 
-  ellipseMode(RADIUS);
+
+  location=new PVector(200,200);
+  speed=new PVector(20,20);
+  //ellipseMode(RADIUS);
 
   startPosX=width/2;
   startPosY=height/2;
@@ -20,6 +28,27 @@ void setup(){
 void draw(){
   background(164);
 
+  speed.y=speed.y+a;
+
+  location.add(speed);
+  //speed.add(gravity);
+
+  if(location.x>width){
+    location.x=0;
+  }
+
+  if(location.x<0){
+   location.x=width;
+  }
+
+  if(location.y>height||location.y<24){
+   speed.y=speed.y*(-0.98);
+  }
+
+
+  ellipse(location.x,location.y, 50, 50);
+
+ /*
  startPosX=startPosX+(xAxisSpeed*xMovement);
  startPosY=startPosY+(yAxisSpeed*yMovement);
 
@@ -31,5 +60,5 @@ void draw(){
 }
 
 ellipse(startPosX,startPosY, radius, radius);
-
+*/
 }
