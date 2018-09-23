@@ -1,0 +1,78 @@
+int time;
+ //this is the "base" of all characters because i messed up and because I am lazy
+ class human{
+     PVector position;
+     PVector movement;
+
+     int size=10;
+
+  public human(){
+    position =new PVector();
+
+    position=new PVector();
+    position.x=random(0, width);
+    position.y=random(0, height);
+
+    //make this random later
+    movement=new PVector();
+    movement.x=8;
+    movement.y=8;
+
+  }
+
+  public human(float x, float y){
+    position= new PVector(x, y);
+
+    movement= new PVector();
+    movement.x=0.2;
+    movement.y=0.2;
+
+  }
+
+
+
+  void update(){
+  //add randomized movement later
+
+  if(frameCount%5==0){
+  //if(millis()-time>=100){
+
+    //for( int i=0; i<4501; i++){
+    //update later, see if movement can be made more smooth
+    //if(i==0||i==1500||i==3000||i==4500){
+
+  position.x=position.x+(movement.x*(random(-1,1)));
+  position.y=position.y+(movement.y*(random(-1,1)));
+
+  }
+
+  //  }
+ // time=millis();
+//  }
+
+    //add "edge teleport"
+    if(position.x>width){
+    position.x=0;
+    }
+
+    if(position.x<0){
+     position.x=width;
+    }
+
+    if (position.y<0){
+      position.y=height;
+    }
+
+    if(position.y>height){
+      position.y=0;
+    }
+
+  }
+
+  void draw(){
+    strokeWeight(3);
+  //  fill(0,0,0);
+  //fill(255, 0, 0);
+   ellipse(position.x, position.y, size, size);
+  }
+}

@@ -1,0 +1,23 @@
+class zombie extends human{
+
+  public zombie(){
+   super();
+    movement.x=6;
+    movement.y=6;
+  }
+
+  public zombie(float x, float y){
+   super(x, y);
+    movement.x=1;
+    movement.y=1;
+  }
+
+
+
+  void draw(){
+    strokeWeight(3);
+   fill(21, 205, 25);
+   super.draw();
+  }
+
+}

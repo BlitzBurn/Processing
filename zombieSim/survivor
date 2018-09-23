@@ -1,0 +1,18 @@
+class survivor extends human{
+  //This is actually supposed to be the human tab, but it became survivor because what was supposed to be the
+  //character class became the human class and i could not be bothered to go back and fix it
+  public survivor(){
+   super();
+  }
+
+  public survivor(float x, float y){
+   super(x, y);
+  }
+
+  void draw(){
+    strokeWeight(3);
+   fill(255, 21, 25);
+   super.draw();
+  }
+
+}
