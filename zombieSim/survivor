@@ -1,5 +1,5 @@
 class survivor extends human{
-  //This is actually supposed to be the human tab, but it became survivor because what was supposed to be the
+  //This is actually supposed to be the human class, but it became survivor because what was supposed to be the
   //character class became the human class and i could not be bothered to go back and fix it
   public survivor(){
    super();

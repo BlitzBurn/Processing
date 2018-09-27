@@ -1,8 +1,11 @@
 human[] humans;
 int characters=100;
 
+int survivorTally=characters;
+int zombieTally=0;
+
 void setup(){
-size(512, 512);
+size(500, 500);
 
 frameRate(60);
 
@@ -17,19 +20,6 @@ for(int i=0; i<characters; i++){
       humans[i]=new survivor();
   }
 
-    /*
-    if (random(0, 1) < 0.5) {
-      humans[i]=new human();
-    }
-    else {
-
-      humans[i]=new zombie();
-    }
-    */
-
-
-
-
     }
 
 }
@@ -43,13 +33,13 @@ for(int i=0; i<characters; i++){
 
 
 
-      for(int j=i+1; j<characters; j++){
+      for(int j=0; j<characters; j++){
 
         if(humans[j].size==0||humans[i].size==0){
           continue;
         }
 
-        if(humans[i] instanceof zombie){
+        if(humans[i] instanceof zombie && humans[j] instanceof survivor){
         boolean wasBitten=humanCaught(
 
         humans[i].position.x,
@@ -62,26 +52,31 @@ for(int i=0; i<characters; i++){
 
         if (wasBitten){
 
-          humans[j].size=0;
+          humans[j]=new zombie(humans[j].position.x, humans[i].position.y);
 
-          humans[j]=new zombie();
-
-
-          /*
-          humans[j]=humans[i];
-
-
-
-          //dubbeloklla att det är en zombie och en survivor
-          //ta bort survivor
-          //spawna en zombie som ärver survivorns position
-
-          humans[i].size=0;
-          humans[j].size=0;
-          */
         }
         }
+
+
       }
+      for(int z=0; z<characters; z++){
+
+          if(humans[z] instanceof zombie){
+            zombieTally=zombieTally+1;
+          }
+
+
+        }
+
+         textSize(30);
+        text("Humans: "+(characters-zombieTally),10, 30);
+        text("Zombies: "+zombieTally,252, 29);
+        /*
+        if(zombieTally==100){
+         exit();
+        }
+        */
+
 
           humans[i].update();
 
@@ -90,8 +85,6 @@ for(int i=0; i<characters; i++){
     for(int i=0; i<characters; i++){
      humans[i].draw();
 
-
     }
 
-
-    }
+    }  

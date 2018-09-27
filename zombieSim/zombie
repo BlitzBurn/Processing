@@ -8,8 +8,8 @@ class zombie extends human{
 
   public zombie(float x, float y){
    super(x, y);
-    movement.x=1;
-    movement.y=1;
+    movement.x=6;
+    movement.y=6;
   }
 
 
