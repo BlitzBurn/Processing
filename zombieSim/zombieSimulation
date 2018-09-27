@@ -4,8 +4,8 @@ import processing.sound.*;
 SoundFile deadSound;
 
 human[] humans;
-int characters=100;
 
+int characters=100;
 int zombieTally=1;
 int survivorTally=characters-1;
 
@@ -15,6 +15,7 @@ void setup(){
 size(500, 500);
 
 frameRate(60);
+
 
 humans= new human[characters];
 
@@ -38,10 +39,14 @@ for(int i=0; i<characters; i++){
     background(192);
 
 
+    int ms=millis();
+    int s=ms/1000;
+    int m=s/60;
 
+    if(s>59)
+    s=s-59;
 
-
- if(survivorTally==0){
+        if(survivorTally==0){
          noLoop();
          //DS = loadFont("Adobe Garamond Pro");
       DS = createFont("AdobeGaramondPro", 69);
@@ -50,11 +55,19 @@ for(int i=0; i<characters; i++){
          textFont(DS);
          text("Everyone Died", 19, 220);
 
+         textSize(25);
+         fill(173,30,29);
+         text("In "+m+"m And "+s+"s", 298, 260);
+
           deadSound.play();
 
          return;
 
         }
+
+    fill(254, 245, 2);
+    text(m+"m "+s+"s",194, 30);
+
     line(0, 35, width, 35);
     for(int i=0; i<characters; i++){
 
@@ -87,27 +100,15 @@ for(int i=0; i<characters; i++){
 
 
       }
-     /* for(int z=0; z<characters; z++){
-
-          if(humans[z] instanceof zombie){
-            zombieTally=zombieTally+1;
-          }
-
-
-        }*/
 
          textSize(30);
         fill(255, 0, 0);
-        text("Humans: "+(survivorTally),10, 30);
+        text("Humans: "+(survivorTally),0, 30);
         fill(0,255,0);
-        text("Zombies: "+zombieTally,252, 29);
-
-
-
-
+        text("Zombies: "+zombieTally,308, 30);
 
           humans[i].update();
-          hint(DISABLE_DEPTH_TEST);
+
     }
 
     for(int i=0; i<characters; i++){
