@@ -1,8 +1,15 @@
+
+import processing.sound.*;
+
+SoundFile deadSound;
+
 human[] humans;
 int characters=100;
 
-int survivorTally=characters;
-int zombieTally=0;
+int zombieTally=1;
+int survivorTally=characters-1;
+
+PFont DS;
 
 void setup(){
 size(500, 500);
@@ -10,6 +17,9 @@ size(500, 500);
 frameRate(60);
 
 humans= new human[characters];
+
+deadSound = new SoundFile(this, "killsound.mp3");
+
 
 for(int i=0; i<characters; i++){
 
@@ -25,10 +35,27 @@ for(int i=0; i<characters; i++){
 }
 
     void draw(){
-    background(255);
+    background(192);
 
 
 
+
+
+ if(survivorTally==0){
+         noLoop();
+         //DS = loadFont("Adobe Garamond Pro");
+      DS = createFont("AdobeGaramondPro", 69);
+        fill(173,30,29);
+         textSize(82);
+         textFont(DS);
+         text("Everyone Died", 19, 220);
+
+          deadSound.play();
+
+         return;
+
+        }
+    line(0, 35, width, 35);
     for(int i=0; i<characters; i++){
 
 
@@ -53,33 +80,34 @@ for(int i=0; i<characters; i++){
         if (wasBitten){
 
           humans[j]=new zombie(humans[j].position.x, humans[i].position.y);
-
+       zombieTally=zombieTally+1;
+       survivorTally=survivorTally-1;
         }
         }
 
 
       }
-      for(int z=0; z<characters; z++){
+     /* for(int z=0; z<characters; z++){
 
           if(humans[z] instanceof zombie){
             zombieTally=zombieTally+1;
           }
 
 
-        }
+        }*/
 
          textSize(30);
-        text("Humans: "+(characters-zombieTally),10, 30);
+        fill(255, 0, 0);
+        text("Humans: "+(survivorTally),10, 30);
+        fill(0,255,0);
         text("Zombies: "+zombieTally,252, 29);
-        /*
-        if(zombieTally==100){
-         exit();
-        }
-        */
+
+
+
 
 
           humans[i].update();
-
+          hint(DISABLE_DEPTH_TEST);
     }
 
     for(int i=0; i<characters; i++){
