@@ -8,16 +8,124 @@ class zombie extends human{
 
   public zombie(float x, float y){
    super(x, y);
-    movement.x=6;
+   movement.x=6;
     movement.y=6;
-  }
+
+ }
+
+
+
 
 
 
   void draw(){
     strokeWeight(3);
    fill(21, 205, 25);
+
+        for(int i=0; i<characters; i++){
+
+      for(int j=0; j<characters; j++){
+
+        if(humans[j].size>=0||humans[i].size>=0){
+          continue;
+        }
+
+        if(humans[i] instanceof zombie && humans[j] instanceof survivor){
+        boolean closestHumanDetected=humanCaught(
+
+        humans[i].position.x,
+        humans[i].position.y,
+        humans[i].size/2,
+
+        humans[j].position.x,
+        humans[j].position.y,
+        humans[j].size/2);
+
+        if(closestHumanDetected){
+            float xDist=humans[i].position.x-humans[j].position.y;
+            float yDist=humans[i].position.y-humans[j].position.y;
+
+          if(xDist<0){
+           movement.x=movement.x*1;
+          }
+
+           if(xDist>0){
+           movement.x=movement.x*(-1);
+          }
+
+          if(xDist==0){
+           movement.x=movement.x*0;
+          }
+          if(yDist<0){
+           movement.y=movement.y*1;
+          }
+
+           if(yDist>0){
+           movement.y=movement.y*(-1);
+          }
+
+          if(yDist==0){
+           movement.y=movement.y*0;
+          }
+        }
+
+        }
+      }
+
    super.draw();
   }
 
 }
+
+
+/*     for(int i=0; i<characters; i++){
+
+      for(int j=0; j<characters; j++){
+
+        if(humans[j].size>=0||humans[i].size>=0){
+          continue;
+        }
+
+        if(humans[i] instanceof zombie && humans[j] instanceof survivor){
+        boolean closestHumanDetected=humanCaught(
+
+        humans[i].position.x,
+        humans[i].position.y,
+        humans[i].size/2,
+
+        humans[j].position.x,
+        humans[j].position.y,
+        humans[j].size/2);
+
+        if(closestHumanDetected){
+            float xDist=humans[i].position.x-humans[j].position.y;
+            float yDist=humans[i].position.y-humans[j].position.y;
+
+          if(xDist<0){
+           movement.x=movement.x*1;
+          }
+
+           if(xDist>0){
+           movement.x=movement.x*(-1);
+          }
+
+          if(xDist==0){
+           movement.x=movement.x*0;
+          }
+          if(yDist<0){
+           movement.y=movement.y*1;
+          }
+
+           if(yDist>0){
+           movement.y=movement.y*(-1);
+          }
+
+          if(yDist==0){
+           movement.y=movement.y*0;
+          }
+        }
+
+        }
+      }
+
+ */}

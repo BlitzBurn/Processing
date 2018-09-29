@@ -1,13 +1,26 @@
+int moveRandom;
+
 class survivor extends human{
   //This is actually supposed to be the human class, but it became survivor because what was supposed to be the
   //character class became the human class and i could not be bothered to go back and fix it
   public survivor(){
    super();
+    movement.x=8;
+    movement.y=8;
+    if(frameCount%5==0){
+
+  position.x=position.x+(movement.x*random(-1,1));
+  position.y=position.y+(movement.y*random(-1,1));
+
   }
+  }
+
 
   public survivor(float x, float y){
    super(x, y);
   }
+
+
 
   void draw(){
     strokeWeight(3);

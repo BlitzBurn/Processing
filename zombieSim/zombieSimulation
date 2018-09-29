@@ -5,7 +5,7 @@ SoundFile deadSound;
 
 human[] humans;
 
-int characters=100;
+int characters=10;
 int zombieTally=1;
 int survivorTally=characters-1;
 
@@ -43,9 +43,9 @@ for(int i=0; i<characters; i++){
     int s=ms/1000;
     int m=s/60;
 
-    if(s>59)
+    if(s>59){
     s=s-59;
-
+    }
         if(survivorTally==0){
          noLoop();
          //DS = loadFont("Adobe Garamond Pro");
@@ -69,9 +69,8 @@ for(int i=0; i<characters; i++){
     text(m+"m "+s+"s",194, 30);
 
     line(0, 35, width, 35);
+
     for(int i=0; i<characters; i++){
-
-
 
       for(int j=0; j<characters; j++){
 
@@ -116,4 +115,4 @@ for(int i=0; i<characters; i++){
 
     }
 
-    }  
+    }

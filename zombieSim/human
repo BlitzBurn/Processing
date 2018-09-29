@@ -1,4 +1,4 @@
-int time;
+
  //this is the "base" of all characters because i messed up and I am too lazy to fix it properly
  class human{
      PVector position;
@@ -16,8 +16,8 @@ int time;
 
     //make this random later
     movement=new PVector();
-    movement.x=8;
-    movement.y=8;
+    //movement.x=8;
+    //movement.y=8;
 
 
   }
@@ -26,19 +26,19 @@ int time;
     position= new PVector(x, y);
 
     movement= new PVector();
-    movement.x=0.2;
-    movement.y=0.2;
+    movement.x=movement.x*0.2;
+    movement.y=movement.y*0.2;
 
   }
 
   void update(){
 
-  if(frameCount%5==0){
+  for(int i=0; i<characters; i++){
 
-  position.x=position.x+(movement.x*(random(-1,1)));
-  position.y=position.y+(movement.y*(random(-1,1)));
+     position.x=humans[i].position.x;
+     position.y=humans[i].position.y;
 
-  }
+}
 
     if(position.x>width){
     position.x=0;
@@ -48,12 +48,12 @@ int time;
      position.x=width;
     }
 
-    if (position.y<0){
+    if (position.y<40||position.y<0){
       position.y=height;
     }
 
     if(position.y>height){
-      position.y=0;
+      position.y=40;
     }
 
   }
